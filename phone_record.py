@@ -24,27 +24,24 @@ def phone_operations():
         elif entry == 2:
             # Request for phone number and contact data
             phone_number = input('Please Enter a number: ')
-            first_data = input('Please Enter Firstdata : ')
-            last_data = input('Please Enter Lastdata : ')
+            first_name = input('Please Enter Firstdata : ')
+            last_name = input('Please Enter Lastdata : ')
 
             # Check if the contact number already exits in Phonebook
             # If it does not, update current contact list in PhoneBook
             if phone_number not in record.items():
-                record.update({first_data+","+last_data: phone_number})
+                record.update({first_name+","+last_name: phone_number})
                 # Print a success message
-                print('Contact successfully saved')
-                print('Your updated phonebook is Shown below: ')
-                # Loop through Phonebook and display each contact in a separate line
-                for key, item in record.items():
-                    print(key, ':', item)
+                print('Contact ', first_name, ',', last_name,
+                      ' : ', phone_number, ' successfully saved')
 
             # Contact exist
             else:
                 print('That contact already exits in your Phonebook')
                 confirm = input('Record already exist as ' +
-                                record[phone_number]+'Update contact as '+first_data+","+last_data+' ? Y/N: ')
+                                record[phone_number]+'Update contact as '+first_name+","+last_name+' ? Y/N: ')
                 if confirm.capitalize() == 'Y':
-                    record.update({first_data+","+last_data: phone_number})
+                    record.update({first_name+","+last_name: phone_number})
                     # Print a success message
                     print('Contact updated successfully saved')
 
